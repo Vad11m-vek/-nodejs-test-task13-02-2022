@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<% if (ImportantAnswer) { %>
+		<h1>
+			<%= ImportantAnswer %>
+		</h1>
+		<% } %>
+			<% if (ImportantSource) { %>
+				<% ImportantSource.forEach((article)=> { %>
+					<h2><a href="<%=article.url%>">НАУКА И ТЕХНИКА</a> <span>
+							<%= moment(article.ptime).format( 'MMM-DD-YYYY' ) %>
+						</span></h2>
+					<h2>
+						<%= article.title %>
+
+
+					</h2>
+					<p>
+						<%= article.description %>
+					</p>
+
+					<hr />
+					<% }) %>
+						<% } %>
+							<% if (NoImportantAnswer) { %>
+								<h1>
+									<%= NoImportantAnswer %>
+								</h1>
+								<% } %>
+									<% if (notImportantSource) { %>
+										<ul>
+											<% notImportantSource.map((notImportantSource, index)=> { %>
+												<li>
+													<h2>
+														<%= notImportantSource %>
+													</h2>
+												</li>
+
+												<% }) %>
+										</ul>
+										<% } %>
+
+</body>
+
+</html>
